@@ -6,5 +6,5 @@ app = Flask(__name__)
 def ping():
     return 'Pong!'
 
-if __name__ == 'main':
+if __name__ == '__main__':
     app.run(debug=True)

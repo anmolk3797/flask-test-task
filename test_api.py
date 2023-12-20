@@ -1,5 +1,5 @@
 import json
-from app import app, db, User
+from exercise3 import app, db, User
 
 # Flask test client
 client = app.test_client()
@@ -21,13 +21,14 @@ def test_create_user():
     # Test creating a user
     data = {'name': 'Test User', 'email': 'test@example.com'}
     response = client.post('/save', json=data)
-    assert response.status_code == 200
+    assert response.status_code == 201
 
 def test_get_users():
     # Test getting all users
     response = client.get('/get')
+    # breakpoint()
     assert response.status_code == 200
-    users = json.loads(response.data)['users']
+    users = json.loads(response.data)
     assert len(users) == 1  # Assuming one user was created
 
 def test_get_user():
