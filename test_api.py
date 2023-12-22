@@ -26,7 +26,6 @@ def test_create_user():
 def test_get_users():
     # Test getting all users
     response = client.get('/get')
-    # breakpoint()
     assert response.status_code == 200
     users = json.loads(response.data)
     assert len(users) == 1  # Assuming one user was created
